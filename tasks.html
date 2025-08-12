@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoX - Daily Tasks</title>
+    <l<!-- CSS Link -->
+  <link rel="stylesheet" href="tasks.css" />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- JS (with defer so it loads after DOM) -->
+  <script src="tasks.js" defer></script>
+</head>
+<body>
+    <div class="stars-container" id="stars-container"></div>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Redirecting to Dashboard...</div>
+    </div>
+    
+    <header>
+        <img src="https://example.com/logo.png" alt="CryptoX Logo" class="logo">
+        <h1>DAILY MINING TASKS</h1>
+        <p class="subtitle">Complete tasks to earn crypto rewards</p>
+    </header>
+
+    <div class="progress-container">
+        <div class="progress-title">Today's Progress</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-text"><span id="completed-count">0</span>/<span id="total-count">0</span> Tasks Completed</div>
+    </div>
+
+    <div class="task-container" id="task-container">
+        <!-- WhatsApp Task -->
+        <div class="task" id="whatsapp-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3>WhatsApp Status</h3>
+            <p>Share our WhatsApp status and upload screenshot to complete this task.</p>
+            
+            <div class="admin-video-container">
+                <h4><i class="fab fa-whatsapp"></i> How to share status:</h4>
+                <video controls>
+                    <source src="whatsapp-tutorial.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="complete-btn whatsapp-btn" id="whatsapp-btn">Share Status</button>
+            </div>
+            
+            <div class="screenshot-upload" id="whatsapp-upload">
+                <label>Upload screenshot of shared status:</label>
+                <input type="file" id="whatsapp-screenshot" accept="image/*">
+                <button class="complete-btn upload-btn" id="whatsapp-upload-btn">Upload Screenshot</button>
+            </div>
+        </div>
+
+        <!-- Facebook Task -->
+        <div class="task" id="facebook-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3>Facebook Story</h3>
+            <p>Share our Facebook story and upload screenshot to complete this task.</p>
+            
+            <div class="admin-video-container">
+                <h4><i class="fab fa-facebook"></i> How to share story:</h4>
+                <video controls>
+                    <source src="facebook-tutorial.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="complete-btn facebook-btn" id="facebook-btn">Share Story</button>
+            </div>
+            
+            <div class="screenshot-upload" id="facebook-upload">
+                <label>Upload screenshot of shared story:</label>
+                <input type="file" id="facebook-screenshot" accept="image/*">
+                <button class="complete-btn upload-btn" id="facebook-upload-btn">Upload Screenshot</button>
+            </div>
+        </div>
+
+        <!-- YouTube Task -->
+        <div class="task" id="youtube-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3>YouTube Video</h3>
+            <p>Share our YouTube video and upload screenshot to complete this task.</p>
+            
+            <div class="admin-video-container">
+                <h4><i class="fab fa-youtube"></i> How to share video:</h4>
+                <video controls>
+                    <source src="youtube-tutorial.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="complete-btn youtube-btn" id="youtube-btn">Share Video</button>
+            </div>
+            
+            <div class="screenshot-upload" id="youtube-upload">
+                <label>Upload screenshot of shared video:</label>
+                <input type="file" id="youtube-screenshot" accept="image/*">
+                <button class="complete-btn upload-btn" id="youtube-upload-btn">Upload Screenshot</button>
+            </div>
+        </div>
+
+        <!-- TikTok Task -->
+        <div class="task" id="tiktok-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3>TikTok Video</h3>
+            <p>Share our TikTok video and upload screenshot to complete this task.</p>
+            
+            <div class="admin-video-container">
+                <h4><i class="fab fa-tiktok"></i> How to share video:</h4>
+                <video controls>
+                    <source src="tiktok-tutorial.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="complete-btn tiktok-btn" id="tiktok-btn">Share Video</button>
+            </div>
+            
+            <div class="screenshot-upload" id="tiktok-upload">
+                <label>Upload screenshot of shared video:</label>
+                <input type="file" id="tiktok-screenshot" accept="image/*">
+                <button class="complete-btn upload-btn" id="tiktok-upload-btn">Upload Screenshot</button>
+            </div>
+        </div>
+
+        <!-- Flip Coin Game -->
+        <div class="task" id="flip-coin-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3>Flip Coin Game</h3>
+            <p>Flip the coin and get heads to complete this task.</p>
+            
+            <div class="game-container">
+                <div class="coin" id="coin">
+                    <div class="front">H</div>
+                    <div class="back"><i class="fab fa-bitcoin"></i></div>
+                </div>
+                <div class="coin-result" id="coin-result"></div>
+                <button class="complete-btn" id="flip-coin-btn">Flip Coin</button>
+            </div>
+        </div>
+
+        <!-- Bitcoin Mining Task -->
+        <div class="task mining-task" id="bitcoin-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3><i class="fab fa-bitcoin"></i> Bitcoin Node</h3>
+            <p>Activate to start earning Bitcoin rewards.</p>
+            
+            <div class="mining-progress">
+                <div class="mining-progress-bar bitcoin-progress" id="bitcoin-progress"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="complete-btn note-btn bitcoin-btn" id="bitcoin-btn">Activate Node</button>
+            </div>
+        </div>
+
+        <!-- Ethereum Mining Task -->
+        <div class="task mining-task" id="ethereum-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3><i class="fab fa-ethereum"></i> Ethereum Node</h3>
+            <p>Activate to start earning Ethereum rewards.</p>
+            
+            <div class="mining-progress">
+                <div class="mining-progress-bar ethereum-progress" id="ethereum-progress"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="complete-btn note-btn ethereum-btn" id="ethereum-btn">Activate Node</button>
+            </div>
+        </div>
+
+        <!-- BNB Mining Task -->
+        <div class="task mining-task" id="bnb-task">
+            <div class="done-marker">COMPLETED</div>
+            <h3><i class="fas fa-coins"></i> BNB Node</h3>
+            <p>Activate to start earning BNB rewards.</p>
+            
+            <div class="mining-progress">
+                <div class="mining-progress-bar bnb-progress" id="bnb-progress"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="complete-btn note-btn bnb-btn" id="bnb-btn">Activate Node</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="completion-message" id="completion-message">
+        Congratulations! You've completed all daily tasks. Come back tomorrow for more rewards.
+    </div>
+
+    <div class="fixed-bottom-btn">
+        <button class="dashboard-btn" id="dashboard-btn" disabled>Return to Dashboard</button>
+    </div>
+
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text">Task completed successfully!</span>
+    </div>
+
+    <div class="celebration" id="celebration"></div>
+
+    <script src="tasks.js"></script>
+</body>
+</html>

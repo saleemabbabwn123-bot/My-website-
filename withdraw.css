@@ -1,0 +1,416 @@
+:root {
+    --primary-bg: #0a0a0a;
+    --card-bg: #121212;
+    --accent-gold: #FFD700;
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --danger-red: #FF3333;
+    --success-green: #00CC66;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Falling stars background - SPEED INCREASED 20X */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    animation: fall linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    color: var(--accent-gold);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Card styling */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card corner decorations */
+.card::before, .card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-color: var(--accent-gold);
+    opacity: 0.5;
+}
+
+.card::before {
+    top: 0;
+    right: 0;
+    border-width: 2px 2px 0 0;
+    border-top-right-radius: 4px;
+}
+
+.card::after {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 2px 2px;
+    border-bottom-left-radius: 4px;
+}
+
+.card-title {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Minimum withdrawal notice */
+.min-withdrawal {
+    background-color: rgba(255, 215, 0, 0.1);
+    border-left: 3px solid var(--accent-gold);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.min-withdrawal span {
+    color: var(--accent-gold);
+    white-space: nowrap;
+}
+
+.min-amount {
+    color: var(--danger-red) !important;
+    font-weight: bold;
+}
+
+/* Withdrawal form */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-gold);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #FFC000;
+    transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Blockchain selector */
+.blockchain-selector {
+    position: relative;
+}
+
+.blockchain-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.blockchain-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+}
+
+.blockchain-options.show {
+    display: block;
+}
+
+.blockchain-option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.blockchain-option:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* Processing state */
+.processing {
+    text-align: center;
+    padding: 2rem 0;
+    display: none;
+}
+
+.processing-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 215, 0, 0.2);
+    border-top: 4px solid var(--accent-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* History section */
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-amount {
+    color: var(--danger-red);
+    font-weight: bold;
+}
+
+.history-wallet {
+    color: var(--text-secondary);
+    text-align: center;
+    flex: 1;
+    font-family: monospace;
+}
+
+.history-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.status-pending {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: var(--accent-gold);
+}
+
+.status-completed {
+    background-color: rgba(0, 204, 102, 0.1);
+    color: var(--success-green);
+}
+
+/* Recent withdrawals - MODIFIED LAYOUT */
+.recent-withdrawals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.recent-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+}
+
+.recent-amount {
+    color: var(--danger-red);
+    font-weight: bold;
+    width: 30%;
+    text-align: left;
+}
+
+.recent-wallet {
+    color: var(--text-secondary);
+    font-family: monospace;
+    text-align: center;
+    width: 40%;
+}
+
+.recent-label {
+    color: var(--accent-gold);
+    width: 30%;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+/* Network status indicator */
+.network-status {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.network-online {
+    background-color: rgba(0, 204, 102, 0.2);
+    color: var(--success-green);
+}
+
+.network-offline {
+    background-color: rgba(255, 51, 51, 0.2);
+    color: var(--danger-red);
+}
+
+.network-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.online {
+    background-color: var(--success-green);
+}
+
+.offline {
+    background-color: var(--danger-red);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .network-status {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .history-item, .recent-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .recent-amount,
+    .recent-wallet,
+    .recent-label {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoInvest Pro - Investor FAQ</title>
+     <link rel="stylesheet" href="support.css">
+     <script src="support.js"></script>
+</head>
+<body>
+    <!-- Crypto decorative elements -->
+    <svg class="crypto-icon icon-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.5L18 9v6l-6 3.5-6-3.5V9l6-3.5z" fill="var(--golden)"/>
+        <path d="M12 12l6-3-6-3-6 3 6 3z" fill="var(--crypto-blue)"/>
+    </svg>
+    
+    <svg class="crypto-icon icon-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="var(--crypto-purple)" stroke-width="2" fill="none"/>
+        <path d="M12 6v12M6 12h12" stroke="var(--golden)" stroke-width="2"/>
+    </svg>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <div class="feedback-content">
+            <button class="close-feedback" id="closeFeedback">&times;</button>
+            <div class="gold-coins coin-1"></div>
+            <div class="gold-coins coin-2"></div>
+            <div class="gold-coins coin-3"></div>
+            <div class="gold-coins coin-4"></div>
+            <h3>Thank You!</h3>
+            <p>We appreciate your feedback. Your response helps us improve our service.</p>
+            <img src="images/logo.png" alt="Golden Star">
+            <p style="margin-top: 20px; color: var(--golden); font-weight: bold;">Your satisfaction is our priority!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span class="logo-text">CryptoInvest Pro</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Invest</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>Your Crypto Investment Questions Answered</h1>
+            <p>Get instant answers about our investment packages, daily profits, withdrawals and trading strategies</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Ask about investment packages, withdrawals, profits...">
+            </div>
+        </section>
+
+        <div class="query-container">
+            <div class="query-box">
+                <h3>Ask Your Investment Question</h3>
+                <textarea id="userQuestion" placeholder="Type your question here (e.g., How do I invest? What are the package returns? How to withdraw profits?)"></textarea>
+                <button id="submitQuery" class="golden-button">Get Instant Answer</button>
+            </div>
+            
+            <div class="response-box">
+                <div class="response-header">
+                    <img src="images/logo.png" alt="AI Assistant">
+                    <h4>Instant Response</h4>
+                </div>
+                <div id="autoResponse" class="response-content">
+                    <p>Your answer will appear here when you submit your question. We can explain our investment packages, daily profit system, withdrawal process, and more.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h3>How to Invest?</h3>
+                    <p>Step-by-step guide to start investing with us</p>
+                    <button class="view-answer">View Answer</button>
+                </div>
+                <div class="faq-card">
+                    <h3>Investment Packages</h3>
+                    <p>Details about all available investment plans</p>
+                    <button class="view-answer">View Answer</button>
+                </div>
+                <div class="faq-card">
+                    <h3>Daily Profit System</h3>
+                    <p>How daily profits are calculated and paid</p>
+                    <button class="view-answer">View Answer</button>
+                </div>
+                <div class="faq-card">
+                    <h3>Withdrawal Process</h3>
+                    <p>How to withdraw your profits and timeframe</p>
+                    <button class="view-answer">View Answer</button>
+                </div>
+                <div class="faq-card">
+                    <h3>Our Trading Strategy</h3>
+                    <p>How we generate consistent profits</p>
+                    <button class="view-answer">View Answer</button>
+                </div>
+                <div class="faq-card">
+                    <h3>Security Measures</h3>
+                    <p>How we protect your investments</p>
+                    <button class="view-answer">View Answer</button>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2023 CryptoInvest Pro - All Rights Reserved</p>
+            <p>Your trusted crypto investment partner</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

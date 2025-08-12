@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoX | Sign Up</title>
+     <!-- CSS Link -->
+  <link rel="stylesheet" href="signup.css" />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- JS (with defer so it loads after DOM) -->
+  <script src="signup.js" defer></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Securing your account</div>
+    </div>
+    
+    <div class="card" id="signupCard">
+        <img src="images/logo.png" alt="CryptoX Logo" class="logo">
+        
+        <h1 class="form-title">Join CryptoX</h1>
+        
+        <form id="signupForm">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Create username" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Your email address" required>
+            </div>
+            
+            <div class="input-group phone-group">
+                <div class="country-select-wrapper">
+                    <select id="countryCode" required>
+                        <option value="" disabled selected>Select Country</option>
+                    </select>
+                    <div class="country-search-container" id="countrySearchContainer">
+                        <input type="text" class="country-search-input" id="countrySearchInput" placeholder="Search country...">
+                        <div class="country-list" id="countryList"></div>
+                    </div>
+                </div>
+                <input type="tel" id="phone" placeholder="Phone number" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Create password" required>
+            </div>
+            <div class="password-strength">
+                <span class="weak"></span>
+                <span class="medium"></span>
+                <span class="strong"></span>
+            </div>
+            <p class="password-hint">Password must contain at least 8 characters including:<br>• One number (0-9)<br>• One special character (!@#$%^&*)<br>• One uppercase letter (A-Z)</p>
+            
+            <div class="input-group">
+                <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="rememberMe" checked>
+                <label for="rememberMe">Accept Term And Condation</label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" id="signupBtn">
+                <i class="fas fa-user-plus"></i> Create Account
+            </button>
+            
+            <button type="button" class="btn btn-google" id="googleSignupBtn">
+                <span class="google-icon">
+                    <i class="fab fa-google"></i>
+                </span>
+                Continue with Google
+            </button>
+        </form>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>

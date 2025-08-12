@@ -1,0 +1,60 @@
+Announcement admin panel 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ Unicorn Announcements</title>
+  <link rel="stylesheet" href="admin-announcements.css">
+    <script src="admin-announcements.js" defer></script>
+</head>
+<body>
+  <!-- Unicorn Magic Background -->
+  <div class="magic-bg" id="magic-bg"></div>
+
+  <!-- Modern Announcement Card -->
+  <div class="announcement-card">
+    <div class="card-header">
+      <h2>🔮 <span class="magic-text">Official Announcement</span></h2>
+    </div>
+
+    <div class="card-body">
+      <!-- Premium Toolbar -->
+      <div class="toolbar">
+        <button class="tool-btn" onclick="formatText('bold')">✧ Bold</button>
+        <button class="tool-btn" onclick="formatText('italic')">✧ Italic</button>
+        <button class="tool-btn" onclick="formatText('magic-text')">🌈 Magic Text</button>
+        <button class="tool-btn" onclick="formatText('sparkle-box')">✨ Sparkle Box</button>
+        <button class="tool-btn" onclick="formatText('urgent-pulse')">⚠️ Urgent</button>
+        <button class="tool-btn" onclick="formatText('star-list')">✧ Star List</button>
+      </div>
+
+      <!-- Editable Text Area -->
+      <textarea class="announcement-text" placeholder="Type your magical announcement here...">[sparkle-box]
+🌟 **New Unicorn Rewards Program!**
+[/sparkle-box]
+
+✧ Earn points for completing tasks
+✧ Redeem for exclusive perks
+✧ Top users get golden status
+
+[magic-text]Limited time offer![/magic-text]
+
+[urgent-pulse]⏰ Ends August 30th![/urgent-pulse]</textarea>
+    </div>
+
+    <!-- Signature Section -->
+    <div class="card-footer">
+      <div class="timestamp">
+        🗓️ <span id="current-time">25 July 2025, 3:00 PM</span>
+      </div>
+      <div class="admin-signature">
+        <div class="handwritten-sig">Sarah Admin</div>
+        <div class="official-stamp" title="Verified">✓</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin-announcements.js" defer></script>
+</body>
+</html>

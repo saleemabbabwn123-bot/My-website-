@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoX - Admin Task Control Panel</title>
+     <l<!-- CSS Link -->
+  <link rel="stylesheet" href="admin-tasks.css" />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- JS (with defer so it loads after DOM) -->
+  <script src="admin-tasks.js" defer></script>
+</head>
+<body>
+    <div class="admin-panel">
+        <header>
+            <h1>Admin Task Control Panel</h1>
+            <p class="subtitle">Manage tasks and content for users</p>
+        </header>
+
+        <div class="panel-section">
+            <h2><i class="fas fa-folder-open"></i> Social Media Tasks Configuration</h2>
+            <div class="task-grid">
+                <!-- WhatsApp Task -->
+                <div class="task-card" id="whatsapp-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('whatsapp')">Hide Task</button>
+                    </div>
+                    <h3><i class="fab fa-whatsapp"></i> WhatsApp Status</h3>
+                    
+                    <div class="folder-input-container">
+                        <label>Video Folder Path:</label>
+                        <input type="text" class="folder-input" id="whatsapp-folder" placeholder="C:\Videos\WhatsApp">
+                        <button class="save-btn" onclick="saveFolder('whatsapp')">Save</button>
+                    </div>
+                    
+                    <div class="folder-path" id="whatsapp-folder-path">No folder selected</div>
+                    
+                    <div class="current-video">
+                        <h4>Current Video:</h4>
+                        <video controls class="video-preview" id="whatsapp-video-preview">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Facebook Task -->
+                <div class="task-card" id="facebook-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('facebook')">Hide Task</button>
+                    </div>
+                    <h3><i class="fab fa-facebook"></i> Facebook Story</h3>
+                    
+                    <div class="folder-input-container">
+                        <label>Video Folder Path:</label>
+                        <input type="text" class="folder-input" id="facebook-folder" placeholder="C:\Videos\Facebook">
+                        <button class="save-btn" onclick="saveFolder('facebook')">Save</button>
+                    </div>
+                    
+                    <div class="folder-path" id="facebook-folder-path">No folder selected</div>
+                    
+                    <div class="current-video">
+                        <h4>Current Video:</h4>
+                        <video controls class="video-preview" id="facebook-video-preview">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- YouTube Task -->
+                <div class="task-card" id="youtube-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('youtube')">Hide Task</button>
+                    </div>
+                    <h3><i class="fab fa-youtube"></i> YouTube Share</h3>
+                    
+                    <div class="folder-input-container">
+                        <label>Video Folder Path:</label>
+                        <input type="text" class="folder-input" id="youtube-folder" placeholder="C:\Videos\YouTube">
+                        <button class="save-btn" onclick="saveFolder('youtube')">Save</button>
+                    </div>
+                    
+                    <div class="folder-path" id="youtube-folder-path">No folder selected</div>
+                    
+                    <div class="current-video">
+                        <h4>Current Video:</h4>
+                        <video controls class="video-preview" id="youtube-video-preview">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- TikTok Task -->
+                <div class="task-card" id="tiktok-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('tiktok')">Hide Task</button>
+                    </div>
+                    <h3><i class="fab fa-tiktok"></i> TikTok Share</h3>
+                    
+                    <div class="folder-input-container">
+                        <label>Video Folder Path:</label>
+                        <input type="text" class="folder-input" id="tiktok-folder" placeholder="C:\Videos\TikTok">
+                        <button class="save-btn" onclick="saveFolder('tiktok')">Save</button>
+                    </div>
+                    
+                    <div class="folder-path" id="tiktok-folder-path">No folder selected</div>
+                    
+                    <div class="current-video">
+                        <h4>Current Video:</h4>
+                        <video controls class="video-preview" id="tiktok-video-preview">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-section">
+            <h2><i class="fas fa-tasks"></i> Other Tasks Configuration</h2>
+            <div class="task-grid">
+                <!-- Daily Login -->
+                <div class="task-card" id="login-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('login')">Hide Task</button>
+                    </div>
+                    <h3><i class="fas fa-sign-in-alt"></i> Daily Login</h3>
+                    <p>Login to the app daily to claim your reward.</p>
+                    <div class="status-badge" id="login-status">Active</div>
+                </div>
+
+               
+
+                <!-- Coin Flip -->
+                <div class="task-card" id="coin-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('coin')">Hide Task</button>
+                    </div>
+                    <h3><i class="fas fa-coins"></i> Coin Flip</h3>
+                    <p>Flip the coin and get heads to complete this task.</p>
+                    <div class="status-badge" id="coin-status">Active</div>
+                </div>
+
+              
+
+                <!-- Bitcoin Mining -->
+                <div class="task-card" id="bitcoin-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('bitcoin')">Hide Task</button>
+                    </div>
+                    <h3><i class="fab fa-bitcoin"></i> Bitcoin Mining</h3>
+                    <p>Click Start Mining to begin. Mining will complete automatically.</p>
+                    <div class="status-badge" id="bitcoin-status">Active</div>
+                </div>
+
+                <!-- Ethereum Mining -->
+                <div class="task-card" id="ethereum-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('ethereum')">Hide Task</button>
+                    </div>
+                    <h3><i class="fab fa-ethereum"></i> Ethereum Mining</h3>
+                    <p>Click Start Mining to begin. Mining will complete automatically.</p>
+                    <div class="status-badge" id="ethereum-status">Active</div>
+                </div>
+
+                <!-- BNB Mining -->
+                <div class="task-card" id="bnb-task">
+                    <div class="task-controls">
+                        <button class="task-btn toggle-btn" onclick="toggleTask('bnb')">Hide Task</button>
+                    </div>
+                    <h3><i class="fas fa-coins"></i> BNB Mining</h3>
+                    <p>Click Start Mining to begin. Mining will complete automatically.</p>
+                    <div class="status-badge" id="bnb-status">Active</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

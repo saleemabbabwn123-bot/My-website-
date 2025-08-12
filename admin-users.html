@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management Dashboard</title>
+   <link rel="stylesheet" href="admin-users.css">
+     <script src="admin-users.js"defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="top-bar">
+                <div class="logo">User Dashboard</div>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Search users...">
+                </div>
+            </div>
+            <div style="position: relative;">
+                <button class="menu-button" id="menuButton">Packages</button>
+                <div class="packages-menu" id="packagesMenu">
+                    <button class="package-option bronze" data-package="bronze">Bronze</button>
+                    <button class="package-option silver" data-package="silver">Silver</button>
+                    <button class="package-option gold" data-package="gold">Gold</button>
+                    <button class="package-option platinum" data-package="platinum">Platinum</button>
+                    <button class="package-option diamond" data-package="diamond">Diamond</button>
+                    <button class="package-option" data-package="all" style="background-color: #444; color: white;">Show All</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="users-container">
+            <h2 class="section-title">All Users</h2>
+            <div class="users-list" id="usersList">
+                <!-- Users will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <h2 class="modal-title">Edit User Details</h2>
+            <form id="editForm">
+                <input type="hidden" id="editUserId">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editUserName">Full Name</label>
+                        <input type="text" id="editUserName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserPhone">Phone Number</label>
+                        <input type="tel" id="editUserPhone" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editUserPackage">Package</label>
+                        <select id="editUserPackage" required>
+                            <option value="bronze">Bronze</option>
+                            <option value="silver">Silver</option>
+                            <option value="gold">Gold</option>
+                            <option value="platinum">Platinum</option>
+                            <option value="diamond">Diamond</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserJoiningDate">Joining Date</label>
+                        <input type="date" id="editUserJoiningDate" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editUserTotalInvestment">Total Investment ($)</label>
+                        <input type="number" id="editUserTotalInvestment" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserTotalProfit">Total Profit ($)</label>
+                        <input type="number" id="editUserTotalProfit" step="0.01" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editUserMonthlyProfit">This Month Profit ($)</label>
+                        <input type="number" id="editUserMonthlyProfit" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserTeamMembers">Team Members</label>
+                        <input type="number" id="editUserTeamMembers" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editUserTeamInvestment">Team Total Investment ($)</label>
+                    <input type="number" id="editUserTeamInvestment" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editUserNotes">Notes</label>
+                    <textarea id="editUserNotes" rows="2"></textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="modal-btn cancel-btn" id="cancelEdit">Cancel</button>
+                    <button type="submit" class="modal-btn save-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

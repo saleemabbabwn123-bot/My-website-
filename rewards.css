@@ -1,0 +1,305 @@
+/* Modern Luxury Theme */
+:root {
+    --gold: #FFD700;
+    --dark: #0a0a0a;
+    --diamond: #b9f2ff;
+    --team-color: #6a5acd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Stars Background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: var(--gold);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 2px var(--gold));
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh); }
+    100% { transform: translateY(110vh); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* Main Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header h1 {
+    color: var(--gold);
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    font-weight: 700;
+}
+
+.header p {
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+/* Section Titles */
+.section-title {
+    color: white;
+    font-size: 2rem;
+    margin: 40px 0 25px;
+    padding-left: 15px;
+    border-left: 4px solid var(--gold);
+}
+
+.team-title {
+    border-left-color: var(--team-color);
+}
+
+/* Card Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(25, 25, 25, 0.95);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1.5rem;
+    color: #121212;
+}
+
+/* Tier-specific icon colors */
+.starter .card-icon { background: linear-gradient(135deg, #cd7f32, #a67c52); }
+.silver .card-icon { background: linear-gradient(135deg, #c0c0c0, #a6a6a6); }
+.gold .card-icon { background: linear-gradient(135deg, var(--gold), #FFA500); }
+.platinum .card-icon { background: linear-gradient(135deg, #e5e4e2, #b6b6b6); }
+.diamond .card-icon { background: linear-gradient(135deg, var(--diamond), #7ec0ee); }
+.team-leader .card-icon { background: linear-gradient(135deg, #9370db, #6a5acd); }
+.supervisor .card-icon { background: linear-gradient(135deg, #836fff, #483d8b); }
+.director .card-icon { background: linear-gradient(135deg, #7b68ee, #4b0082); }
+
+/* Card Title */
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.starter .card-title { color: #cd7f32; }
+.silver .card-title { color: #c0c0c0; }
+.gold .card-title { color: var(--gold); }
+.platinum .card-title { color: #e5e4e2; }
+.diamond .card-title { color: var(--diamond); }
+.team-leader .card-title { color: #9370db; }
+.supervisor .card-title { color: #836fff; }
+.director .card-title { color: #7b68ee; }
+
+.card-amount {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* Card Benefits */
+.card-benefits {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.card-benefits li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.card-benefits li:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Tier-specific bullet colors */
+.starter .card-benefits li:before { background: #cd7f32; }
+.silver .card-benefits li:before { background: #c0c0c0; }
+.gold .card-benefits li:before { background: var(--gold); }
+.platinum .card-benefits li:before { background: #e5e4e2; }
+.diamond .card-benefits li:before { background: var(--diamond); }
+.team-leader .card-benefits li:before { background: #9370db; }
+.supervisor .card-benefits li:before { background: #836fff; }
+.director .card-benefits li:before { background: #7b68ee; }
+
+/* Golden Buttons */
+.card-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    text-decoration: none;
+    background: var(--gold);
+    color: #121212;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.card-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.card-button:hover:before {
+    left: 100%;
+}
+
+/* Social Links */
+.social-section {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.social-title {
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--gold);
+    font-size: 1.3rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.social-link:hover {
+    transform: translateY(-5px) rotate(5deg);
+    background: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.social-link:hover:before {
+    left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}

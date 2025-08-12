@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Withdrawal Management</title>
+     <link rel="stylesheet" href="admin-withdrawals.css">
+     <script src="admin-withdrawals.js defer"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Withdrawal Management System</h1>
+            <div class="admin-info">
+                <div class="admin-avatar">A</div>
+                <div>Admin Panel</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z" fill="#FFD700"/>
+                </svg>
+                Withdrawal Settings
+            </h2>
+            
+            <div class="config-section">
+                <div class="config-row">
+                    <div class="config-label">Minimum Withdrawal Amount (USDT)</div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="minAmountInput" value="100">
+                    </div>
+                    <button class="btn btn-primary" id="updateMinAmountBtn">Update Minimum Amount</button>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Available Blockchain Networks</label>
+                    <div class="checkbox-group" id="networkCheckboxes">
+                        <label class="checkbox-item">
+                            <input type="checkbox" checked> BEP20 (USDT)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" checked> TRC20 (USDT)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" checked> ERC20 (USDT)
+                        </label>
+                    </div>
+                    <button class="btn btn-primary" id="updateNetworksBtn" style="margin-top: 0.5rem;">Update Networks</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z" fill="#FFD700"/>
+                </svg>
+                Withdrawal Requests
+            </h2>
+            
+            <div class="requests-container">
+                <table class="requests-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Amount</th>
+                            <th>Network</th>
+                            <th>Wallet</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requestsList">
+                        <!-- Requests populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2 class="modal-title">User Withdrawal Details</h2>
+            
+            <div class="user-details">
+                <div class="detail-item">
+                    <div class="detail-label">User ID</div>
+                    <div class="detail-value" id="detail-id"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Full Name</div>
+                    <div class="detail-value" id="detail-name"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Phone Number</div>
+                    <div class="detail-value" id="detail-phone"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Email</div>
+                    <div class="detail-value" id="detail-email"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Investment</div>
+                    <div class="detail-value" id="detail-investment"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Withdrawal</div>
+                    <div class="detail-value" id="detail-withdrawal"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Profit</div>
+                    <div class="detail-value" id="detail-profit"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Team Members</div>
+                    <div class="detail-value" id="detail-team"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Team Investment</div>
+                    <div class="detail-value" id="detail-team-investment"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Team Profit</div>
+                    <div class="detail-value" id="detail-team-profit"></div>
+                </div>
+            </div>
+            
+            <h3 class="modal-title">Current Withdrawal Request</h3>
+            <div class="user-details">
+                <div class="detail-item">
+                    <div class="detail-label">Amount</div>
+                    <div class="detail-value" id="detail-amount"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Network</div>
+                    <div class="detail-value" id="detail-network"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Wallet Address</div>
+                    <div class="detail-value" id="detail-wallet"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Request Date</div>
+                    <div class="detail-value" id="detail-date"></div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-approve" id="approveBtn">Approve Payment</button>
+                <button class="btn btn-reject" id="rejectBtn">Reject Request</button>
+                <button class="btn btn-secondary" id="modalCloseBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content" style="max-width: 500px;">
+            <button class="modal-close" id="confirmModalClose">&times;</button>
+            <h2 class="modal-title" id="confirmModalTitle">Confirm Action</h2>
+            <p id="confirmModalMessage">Are you sure you want to perform this action?</p>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="confirmActionBtn">Confirm</button>
+                <button class="btn btn-secondary" id="cancelActionBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-withdrawals.js"></script>
+</body>
+</html>

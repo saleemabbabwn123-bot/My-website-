@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Rewards Dashboard</title>
+    <!-- CSS Link -->
+  <link rel="stylesheet" href="rewards.css" />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- JS (with defer so it loads after DOM) -->
+  <script src="rewards.js" defer></script>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>PREMIUM REWARDS</h1>
+            <p>Unlock exclusive benefits through our tiered membership system</p>
+        </div>
+        
+        <!-- Personal Investment Section -->
+        <h2 class="section-title">Personal Achievement</h2>
+        <div class="card-grid">
+            <!-- Starter Tier -->
+            <div class="card starter">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Starter</h3>
+                        <p class="card-amount">$0 - $100 investment</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>5% Deposit Bonus</li>
+                    <li>Basic Support</li>
+                    <li>Starter Badge</li>
+                    <li>Weekly Newsletter</li>
+                </ul>
+                <a href="#" class="card-button">Get Started</a>
+            </div>
+            
+            <!-- Silver Tier -->
+            <div class="card silver">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Silver</h3>
+                        <p class="card-amount">$100 - $500 investment</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>10% Deposit Bonus</li>
+                    <li>Priority Support</li>
+                    <li>Market Insights</li>
+                    <li>Monthly Webinars</li>
+                </ul>
+                <a href="#" class="card-button">Upgrade Now</a>
+            </div>
+            
+            <!-- Gold Tier -->
+            <div class="card gold">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Gold</h3>
+                        <p class="card-amount">$500 - $2000 investment</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>15% Deposit Bonus</li>
+                    <li>VIP Support</li>
+                    <li>Exclusive Events</li>
+                    <li>Personal Analyst</li>
+                </ul>
+                <a href="#" class="card-button">Become VIP</a>
+            </div>
+            
+            <!-- Platinum Tier -->
+            <div class="card platinum">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Platinum</h3>
+                        <p class="card-amount">$2000 - $5000 investment</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>20% Deposit Bonus</li>
+                    <li>24/7 Dedicated Manager</li>
+                    <li>Private Consultations</li>
+                    <li>Luxury Gifts</li>
+                </ul>
+                <a href="#" class="card-button">Join Elite</a>
+            </div>
+            
+            <!-- Diamond Tier -->
+            <div class="card diamond">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-diamond"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Diamond</h3>
+                        <p class="card-amount">$5000+ investment</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>25% Deposit Bonus</li>
+                    <li>Executive Team Access</li>
+                    <li>Global Summit Invites</li>
+                    <li>Custom Rewards</li>
+                </ul>
+                <a href="#" class="card-button">Exclusive Access</a>
+            </div>
+        </div>
+        
+        <!-- Team Leadership Section -->
+        <h2 class="section-title team-title">Team Leadership</h2>
+        <div class="card-grid">
+            <!-- Team Leader Tier -->
+            <div class="card team-leader">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Team Leader</h3>
+                        <p class="card-amount">$500 - $2000 volume</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>5% Team Commission</li>
+                    <li>Leader Dashboard</li>
+                    <li>Basic Training</li>
+                    <li>Weekly Bonuses</li>
+                </ul>
+                <a href="#" class="card-button">Build Team</a>
+            </div>
+            
+            <!-- Supervisor Tier -->
+            <div class="card supervisor">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Supervisor</h3>
+                        <p class="card-amount">$2000 - $10,000 volume</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>7% Team Commission</li>
+                    <li>Advanced Tools</li>
+                    <li>Monthly Bonus</li>
+                    <li>Team Contests</li>
+                </ul>
+                <a href="#" class="card-button">Grow Network</a>
+            </div>
+            
+            <!-- Director Tier -->
+            <div class="card director">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-chess-king"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Director</h3>
+                        <p class="card-amount">$10,000+ volume</p>
+                    </div>
+                </div>
+                <ul class="card-benefits">
+                    <li>10% Team Commission</li>
+                    <li>Luxury Gifts</li>
+                    <li>Global Summit Access</li>
+                    <li>Profit Sharing</li>
+                </ul>
+                <a href="#" class="card-button">Lead Organization</a>
+            </div>
+        </div>
+        
+        <!-- Social Links Section -->
+        <div class="social-section">
+            <h3 class="social-title">Join Our Community</h3>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="rewards.js"></script>
+</body>
+</html>

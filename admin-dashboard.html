@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Crypto Dashboard</title>
+    <l<!-- CSS Link -->
+  <link rel="stylesheet" href="admin-dashboard.css" />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- JS (with defer so it loads after DOM) -->
+  <script src="admin-dashboard.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/50/121212/FFD700?text=A" alt="Admin Logo">
+                    <h2>Admin Dashboard</h2>
+                </div>
+                <div class="user-name">Admin Panel</div>
+            </div>
+            
+            <div class="notification-container">
+                <button class="notification-btn" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                
+                <div class="notification-dropdown" id="notificationDropdown">
+                    <div class="notification-header">
+                        <span class="notification-title">Notifications</span>
+                        <button class="notification-clear" id="clearNotifications">Clear All</button>
+                    </div>
+                    <div class="notification-item unread">
+                        <div class="notification-message">New withdrawal request from user_8921 ($1,250.00)</div>
+                        <div class="notification-time">2 minutes ago</div>
+                    </div>
+                    <div class="notification-item unread">
+                        <div class="notification-message">New deposit of $5,000.00 received</div>
+                        <div class="notification-time">15 minutes ago</div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-message">System backup completed successfully</div>
+                        <div class="notification-time">1 hour ago</div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-message">5 new user registrations today</div>
+                        <div class="notification-time">3 hours ago</div>
+                    </div>
+                </div>
+                
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Quick Actions Section -->
+            <div class="quick-actions">
+                <div class="quick-actions-card">
+                    <div class="quick-actions-grid">
+                        <a href="admin-dashboard.html" class="btn btn-gold">Dashboard</a>
+                        <a href="admin-users.html" class="btn btn-gold">Users</a>
+                        <a href="admin-withdrawals.html" class="btn btn-gold">Withdrawals</a>
+                        <a href="admin-deposits.html" class="btn btn-gold">Deposits</a>
+                        <a href="admin-tasks.html" class="btn btn-gold">Tasks</a>
+                        <a href="admin-rewards.html" class="btn btn-gold">Rewards</a>
+                        <a href="admin-announcements.html" class="btn btn-gold">Announcements</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Welcome Popup -->
+            <div class="welcome-popup" id="welcomePopup">
+                <div class="welcome-header">
+                    <h2 class="welcome-title">Admin Dashboard</h2>
+                    <button class="close-popup" id="closePopup">&times;</button>
+                </div>
+                
+                <div class="announcement">
+                    <h4><i class="fas fa-bullhorn"></i> System Notice</h4>
+                    <p>There are <strong>12 pending withdrawal requests</strong> and <strong>5 new user registrations</strong> requiring your attention.</p>
+                    <p>New notifications: <strong>3 unread messages</strong> in your inbox.</p>
+                    <button class="btn btn-gold announcement-btn" id="viewNotificationsBtn">
+                        <i class="fas fa-bell"></i> View Notifications
+                    </button>
+                </div>
+                
+                <button class="btn btn-gold" id="continueBtn">Continue to Dashboard</button>
+            </div>
+            
+            <!-- Dashboard Cards -->
+            <div class="dashboard-cards">
+                <!-- Total Users Card with Package Breakdown -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total Users</h3>
+                        <i class="fas fa-users card-icon"></i>
+                    </div>
+                    <div class="card-value">1,245</div>
+                    <div class="package-users">
+                        <div class="package-item package-bronze">
+                            <span class="package-name">Bronze</span>
+                            <span class="package-count">560</span>
+                        </div>
+                        <div class="package-item package-silver">
+                            <span class="package-name">Silver</span>
+                            <span class="package-count">320</span>
+                        </div>
+                        <div class="package-item package-gold">
+                            <span class="package-name">Gold</span>
+                            <span class="package-count">210</span>
+                        </div>
+                        <div class="package-item package-platinum">
+                            <span class="package-name">Platinum</span>
+                            <span class="package-count">95</span>
+                        </div>
+                        <div class="package-item package-diamond">
+                            <span class="package-name">Diamond</span>
+                            <span class="package-count">60</span>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <p>Active Today: <strong>187</strong></p>
+                        <p>New Today: <strong>24</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Pending Withdrawals Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Pending Withdrawals</h3>
+                        <i class="fas fa-money-bill-wave card-icon"></i>
+                    </div>
+                    <div class="card-value">12</div>
+                    <div class="card-details">
+                        <p>Total Amount: <strong>$8,450.00</strong></p>
+                        <p>Highest: <strong>$2,100.00</strong></p>
+                    </div>
+                </div>
+                
+                <!-- New Deposits Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">New Deposits</h3>
+                        <i class="fas fa-wallet card-icon"></i>
+                    </div>
+                    <div class="card-value">18</div>
+                    <div class="card-details">
+                        <p>Total Amount: <strong>$12,800.00</strong></p>
+                        <p>Highest: <strong>$5,000.00</strong></p>
+                    </div>
+                </div>
+                
+                <!-- System Status Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">System Status</h3>
+                        <i class="fas fa-server card-icon"></i>
+                    </div>
+                    <div class="card-value" style="color: var(--green);">Operational</div>
+                    <div class="card-details">
+                        <p>Uptime: <strong>99.98%</strong></p>
+                        <p>Last Check: <strong>Just now</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Recent Withdrawal Requests -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Withdrawal Requests</h3>
+                        <i class="fas fa-file-invoice-dollar card-icon"></i>
+                    </div>
+                    
+                    <div class="requests-list">
+                        <div class="request-item">
+                            <div class="request-header">
+                                <span class="request-user">user_8921</span>
+                                <span class="request-amount">$1,250.00</span>
+                            </div>
+                            <div class="request-details">
+                                <span>BTC Wallet: 1A1zP...e541</span>
+                                <span>2 hours ago</span>
+                            </div>
+                            <div class="admin-controls">
+                                <button class="admin-btn btn-approve">Approve</button>
+                                <button class="admin-btn btn-reject">Reject</button>
+                            </div>
+                        </div>
+                        
+                        <div class="request-item">
+                            <div class="request-header">
+                                <span class="request-user">user_6543</span>
+                                <span class="request-amount">$850.00</span>
+                            </div>
+                            <div class="request-details">
+                                <span>ETH Wallet: 0x8921...F4a2</span>
+                                <span>3 hours ago</span>
+                            </div>
+                            <div class="admin-controls">
+                                <button class="admin-btn btn-approve">Approve</button>
+                                <button class="admin-btn btn-reject">Reject</button>
+                            </div>
+                        </div>
+                        
+                        <div class="request-item">
+                            <div class="request-header">
+                                <span class="request-user">user_3210</span>
+                                <span class="request-amount">$2,100.00</span>
+                            </div>
+                            <div class="request-details">
+                                <span>USDT (TRC20): TYmk...98u7</span>
+                                <span>5 hours ago</span>
+                            </div>
+                            <div class="admin-controls">
+                                <button class="admin-btn btn-approve">Approve</button>
+                                <button class="admin-btn btn-reject">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Deposit Requests -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Deposit Requests</h3>
+                        <i class="fas fa-hand-holding-usd card-icon"></i>
+                    </div>
+                    
+                    <div class="requests-list">
+                        <div class="request-item">
+                            <div class="request-header">
+                                <span class="request-user">user_5678</span>
+                                <span class="request-amount">$5,000.00</span>
+                            </div>
+                            <div class="request-details">
+                                <span>BTC Transaction: a1b2...c3d4</span>
+                                <span>1 hour ago</span>
+                            </div>
+                            <div class="admin-controls">
+                                <button class="admin-btn btn-approve">Verify</button>
+                                <button class="admin-btn btn-reject">Flag</button>
+                            </div>
+                        </div>
+                        
+                        <div class="request-item">
+                            <div class="request-header">
+                                <span class="request-user">user_1234</span>
+                                <span class="request-amount">$2,500.00</span>
+                            </div>
+                            <div class="request-details">
+                                <span>ETH Transaction: 0x123...456</span>
+                                <span>2 hours ago</span>
+                            </div>
+                            <div class="admin-controls">
+                                <button class="admin-btn btn-approve">Verify</button>
+                                <button class="admin-btn btn-reject">Flag</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- System Notifications -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">System Notifications</h3>
+                        <i class="fas fa-bell card-icon"></i>
+                    </div>
+                    <div class="card-value" style="color: var(--golden);">3 New Alerts</div>
+                    <div class="card-details">
+                        <p>Security Scan: <strong>Completed</strong></p>
+                        <p>Backup: <strong>In Progress</strong></p>
+                        <p>New Signups: <strong>5</strong></p>
+                        <p>Failed Logins: <strong>2</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

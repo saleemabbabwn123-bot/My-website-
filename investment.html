@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Investment Platform</title>
+    <link rel="stylesheet" href="investment.css">
+    <script src="investment.js" defer></script>
+</head>
+<body>
+    <!-- Faster Golden Stars Animation -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header Section with Logo and User -->
+    <header class="header">
+        <div class="corner-bottom"></div>
+        <div class="logo">
+            <i class="fas fa-coins logo-icon"></i>
+            <h1 class="logo-text">Global Investments</h1>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">JS</div>
+            <span>John Smith</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Amount Input Card -->
+        <div class="amount-card">
+            <div class="corner-bottom"></div>
+            <h2 class="card-title">
+                <i class="fas fa-money-bill-wave"></i>
+                Investment Amount
+            </h2>
+            <div class="amount-input-group">
+                <label for="investmentAmount" class="amount-label">Enter Your Investment Amount</label>
+                <input type="number" id="investmentAmount" class="amount-input" placeholder="Minimum $100">
+            </div>
+        </div>
+
+        <!-- Blockchain Address Card -->
+        <div class="blockchain-card">
+            <div class="corner-bottom"></div>
+            <div class="toggle-addresses" id="toggleAddresses">
+                <h3><i class="fas fa-wallet"></i> Deposit Wallet Addresses</h3>
+                <i class="fas fa-chevron-down toggle-icon" id="toggleIcon"></i>
+            </div>
+            <div class="addresses-container" id="addressesContainer">
+                <!-- Wallets will be populated by JS -->
+            </div>
+        </div>
+
+        <!-- Payment Proof Card -->
+        <div class="amount-card">
+            <div class="corner-bottom"></div>
+            <h2 class="card-title">
+                <i class="fas fa-file-upload"></i>
+                Payment Proof
+            </h2>
+            <div class="file-upload-container">
+                <label class="file-upload-label">Upload Transaction Screenshot</label>
+                <label class="file-upload-wrapper" for="paymentProof">
+                    <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                    <div class="file-upload-text">Click to browse or drag and drop</div>
+                    <div class="file-upload-subtext">PNG, JPG, or JPEG (Max 5MB)</div>
+                    <input type="file" id="paymentProof" class="file-input" accept="image/*">
+                </label>
+                <div class="file-name" id="fileName">No file selected</div>
+            </div>
+            <button class="submit-btn" id="submitInvestment">
+                <i class="fas fa-paper-plane"></i> Submit Investment
+            </button>
+        </div>
+
+        <!-- Minimum Investment Line -->
+        <div class="min-investment-line">
+            <div class="min-investment-content">
+                <div class="min-investment-label">Minimum Investment Required</div>
+                <div class="min-investment-value" id="minInvestment">$100</div>
+            </div>
+        </div>
+
+        <!-- Pending Request Section -->
+        <div class="pending-request-section">
+            <div class="pending-request-card" id="pendingRequestCard">
+                <div class="corner-bottom"></div>
+                <div class="pending-request-header">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3 class="pending-request-title">Pending Investment Request</h3>
+                </div>
+                <div class="pending-request-details">
+                    <div class="request-detail-row">
+                        <span class="request-detail-label">Package:</span>
+                        <span class="request-detail-value" id="requestPackage">Bronze</span>
+                    </div>
+                    <div class="request-detail-row">
+                        <span class="request-detail-label">Amount:</span>
+                        <span class="request-detail-value" id="requestAmount">$500.00</span>
+                    </div>
+                    <div class="request-detail-row">
+                        <span class="request-detail-label">Date:</span>
+                        <span class="request-detail-value" id="requestDate">2023-11-15</span>
+                    </div>
+                    <div class="request-detail-row">
+                        <span class="request-detail-label">Transaction ID:</span>
+                        <span class="request-detail-value" id="requestTxId">TX-5A8D3F2E1C</span>
+                    </div>
+                </div>
+                <div class="request-status">
+                    <i class="fas fa-sync-alt"></i>
+                    Waiting for CEO approval
+                </div>
+            </div>
+        </div>
+
+        <!-- Packages Section -->
+        <section class="packages-section">
+            <h2 class="section-title">Investment Packages</h2>
+            <p style="text-align: center; color: var(--text-gray); font-size: 0.95rem; margin-bottom: 10px;">
+                Choose from our premium investment plans tailored for maximum returns
+            </p>
+            <!-- ✅ Packages will be inserted here by JavaScript -->
+            <div class="packages-grid" id="packagesGrid"></div>
+        </section>
+    </div>
+</body>
+</html>

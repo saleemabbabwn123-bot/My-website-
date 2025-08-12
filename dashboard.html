@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Crypto Dashboard</title>
+       <l<!-- CSS Link -->
+  <link rel="stylesheet" href="dashboard.css" />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- JS (with defer so it loads after DOM) -->
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+    <!-- Welcome Popup -->
+    <div class="welcome-popup" id="welcomePopup">
+        <div class="welcome-header">
+            <h2>WELCOME BACK</h2>
+            <button class="close-welcome" id="closeWelcome">&times;</button>
+        </div>
+        <div class="welcome-content">
+            <div class="welcome-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="welcome-user-info">
+                    <h3>John Doe <span class="user-rank">TEAM LEADER</span></h3>
+                    <p>Golden VIP Member</p>
+                </div>
+            </div>
+            
+            <h3 class="announcements-title">LATEST ANNOUNCEMENTS</h3>
+            <div class="announcements">
+                <div class="announcement-item">
+                    <h4><i class="fas fa-gem"></i> New Investment Packages</h4>
+                    <p>We've launched 3 new premium investment packages with enhanced returns and exclusive benefits.</p>
+                    <div class="announcement-date"><i class="far fa-clock"></i> Today, 10:30 AM</div>
+                </div>
+                <div class="announcement-item">
+                    <h4><i class="fas fa-tools"></i> System Maintenance</h4>
+                    <p>Scheduled maintenance on October 15th from 2:00 AM to 4:00 AM (UTC).</p>
+                    <div class="announcement-date"><i class="far fa-clock"></i> Yesterday, 3:45 PM</div>
+                </div>
+                <div class="announcement-item">
+                    <h4><i class="fas fa-users"></i> Referral Bonus Boost</h4>
+                    <p>Special limited-time offer! Get 150% bonus on all referral earnings.</p>
+                    <div class="announcement-date"><i class="far fa-clock"></i> 2 days ago, 9:15 AM</div>
+                </div>
+            </div>
+        </div>
+        <div class="welcome-footer">
+            <button class="btn btn-gold" id="continueToDashboard">CONTINUE TO DASHBOARD</button>
+        </div>
+    </div>
+
+    <!-- Task Completion Popup -->
+    <div class="claim-popup" id="taskPopup">
+        <h3>Complete Your Tasks</h3>
+        <p>Please complete your daily tasks before claiming your daily profit.</p>
+        <button class="btn btn-gold" id="goToTasksBtn">Go to Tasks Page</button>
+        <button class="btn" id="closeTaskPopup" style="background: transparent; border: 1px solid var(--golden); color: var(--golden); margin-top: 10px;">Close</button>
+    </div>
+
+    <!-- Already Claimed Popup -->
+    <div class="claim-popup" id="alreadyClaimedPopup">
+        <h3>Already Claimed</h3>
+        <p>You have already claimed your profit today. Come back tomorrow after 12 AM USA time!</p>
+        <button class="btn" id="closeAlreadyClaimedPopup" style="background: transparent; border: 1px solid var(--golden); color: var(--golden);">Close</button>
+    </div>
+
+    <div class="container">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="images/logo3 .png" alt="Company Logo">
+                    <h2>Golden Crypto</h2>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Welcome, John Doe</div>
+                    <div class="user-rank">Team Leader</div>
+                </div>
+            </div>
+            
+            <button class="toggle-menu" id="toggleMenu">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-items">
+                    <div class="nav-item active" onclick="navigateTo('index.html')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('investment.html')">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Investment</span>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('withdraw.html')">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Withdraw</span>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards.html')">
+                        <i class="fas fa-gift"></i>
+                        <span>Rewards</span>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('tasks.html')">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('app.html')">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>App</span>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('support.html')">
+                        <i class="fas fa-headset"></i>
+                        <span>Support</span>
+                    </div>
+                    <div class="nav-item" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard Cards -->
+            <div class="dashboard-cards">
+                <!-- Total Investment Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total Investment</h3>
+                        <i class="fas fa-chart-line card-icon"></i>
+                    </div>
+                    <div class="card-value">$24,750.00</div>
+                    <div class="card-footer">
+                        <small>Last updated: Just now</small>
+                    </div>
+                </div>
+                
+                <!-- Daily Profit Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Daily Profit</h3>
+                        <i class="fas fa-coins card-icon"></i>
+                    </div>
+                    <div class="card-value profit">+$245.50</div>
+                    <button class="btn btn-gold" id="claimProfitBtn">Claim Profit</button>
+                </div>
+                
+                <!-- Total Profit Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total Profit</h3>
+                        <i class="fas fa-piggy-bank card-icon"></i>
+                    </div>
+                    <div class="card-value profit">+$3,245.50</div>
+                    <div class="card-details">
+                        <p>This Month: <strong class="profit">$850.00</strong></p>
+                        <p>All Time: <strong class="profit">$3,245.50</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Team Investment Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Team Investment</h3>
+                        <i class="fas fa-users card-icon"></i>
+                    </div>
+                    <div class="card-value">$8,200.00</div>
+                    <div class="card-details">
+                        <p>Active Members: <strong>5</strong></p>
+                        <p>Total Members: <strong>8</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Team Profit Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Team Profit</h3>
+                        <i class="fas fa-hand-holding-usd card-icon"></i>
+                    </div>
+                    <div class="card-value profit">$1,850.00</div>
+                    <div class="card-details">
+                        <p>Your Bonus: <strong class="profit">$370.00</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Package Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Your Package</h3>
+                        <i class="fas fa-gem card-icon"></i>
+                    </div>
+                    <div class="card-value" style="color: var(--golden);">Golden VIP</div>
+                    <div class="card-details">
+                        <p>Daily ROI: <strong>2.5%</strong></p>
+                        <p>Team Bonus: <strong>5%</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Joining Date Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Joining Date</h3>
+                        <i class="fas fa-calendar-alt card-icon"></i>
+                    </div>
+                    <div class="card-value">15 Jan 2023</div>
+                    <div class="card-details">
+                        <p>Days Active: <strong>198</strong></p>
+                        <p>Account Age: <strong>6 months 13 days</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Referral Link Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Your Referral Link</h3>
+                        <i class="fas fa-share-alt card-icon"></i>
+                    </div>
+                    <div class="referral-link-container">
+                        https://goldencrypto.com/ref/johndoe123
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                    <div class="referral-stats">
+                        <p>Referrals: <strong>8</strong></p>
+                        <p>Active: <strong>5</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Top Coins Live Rates -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Live Coin Rates (12h)</h3>
+                        <i class="fas fa-chart-bar card-icon"></i>
+                    </div>
+                    <div class="coins-table-container">
+                        <table class="coins-table">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Price</th>
+                                    <th>12h Change</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="coinsTableBody">
+                                <!-- Data will be loaded from API -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Recent Transactions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Transactions</h3>
+                        <i class="fas fa-exchange-alt card-icon"></i>
+                    </div>
+                    <div class="withdrawals-list" id="transactionsList">
+                        <!-- Transactions will be added by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- New Features Coming Soon Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">New Features Coming Soon</h3>
+                        <i class="fas fa-rocket card-icon"></i>
+                    </div>
+                    <div class="card-value" style="color: var(--golden);">In Development</div>
+                    <div class="card-details">
+                        <p>Advanced Analytics: <strong>Coming Soon</strong></p>
+                        <p>Mobile App: <strong>Beta Testing</strong></p>
+                        <p>Staking Platform: <strong>Development Phase</strong></p>
+                        <p>NFT Marketplace: <strong>Planned</strong></p>
+                    </div>
+                    <button class="btn btn-gold" style="margin-top: 15px;">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Nodes Popup -->
+    <div class="nodes-popup" id="nodesPopup">
+        <div class="nodes-content">
+            <button class="close-nodes" id="closeNodes">&times;</button>
+            <h2>Mining Nodes</h2>
+            <p>Real-time mining nodes information (12h mining cycle):</p>
+            
+            <div class="nodes-list">
+                <div class="node-item">
+                    <h3><i class="fas fa-server"></i> Node #BTC-1245</h3>
+                    <p><span>Status:</span> <span style="color: var(--green);">Active</span></p>
+                    <p><span>Hashrate:</span> <span>2.5 TH/s</span></p>
+                    <p><span>Uptime:</span> <span>99.8%</span></p>
+                    <p><span>Location:</span> <span>USA</span></p>
+                    <p><span>Cycle Ends:</span> <span>12:00 AM (UTC)</span></p>
+                </div>
+                <div class="node-item">
+                    <h3><i class="fas fa-server"></i> Node #BTC-6789</h3>
+                    <p><span>Status:</span> <span style="color: var(--green);">Active</span></p>
+                    <p><span>Hashrate:</span> <span>1.8 TH/s</span></p>
+                    <p><span>Uptime:</span> <span>98.5%</span></p>
+                    <p><span>Location:</span> <span>Germany</span></p>
+                    <p><span>Cycle Ends:</span> <span>12:00 AM (UTC)</span></p>
+                </div>
+                <div class="node-item">
+                    <h3><i class="fas fa-server"></i> Node #BTC-3042</h3>
+                    <p><span>Status:</span> <span style="color: var(--green);">Active</span></p>
+                    <p><span>Hashrate:</span> <span>3.1 TH/s</span></p>
+                    <p><span>Uptime:</span> <span>99.2%</span></p>
+                    <p><span>Location:</span> <span>Singapore</span></p>
+                    <p><span>Cycle Ends:</span> <span>12:00 AM (UTC)</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>

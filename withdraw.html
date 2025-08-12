@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Exchange - Withdrawal</title>
+    <link rel="stylesheet" href="withdraw.css">
+    <script src="withdraw.js"></script>
+</head>
+<body>
+    <!-- Falling stars background with increased speed -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Network status indicator -->
+    <div class="network-status network-online" id="networkStatus">
+        <div class="network-indicator online"></div>
+        <span>Online - Live Updates</span>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Withdraw Crypto</h1>
+            <p>Transfer your assets to an external wallet</p>
+        </div>
+        
+        <!-- Withdrawal Form Card -->
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z" fill="#FFD700"/>
+                </svg>
+                Withdrawal Request
+            </h2>
+            
+            <div id="withdrawalForm">
+                <div class="form-group">
+                    <label for="amount" class="form-label">Amount (USDT)</label>
+                    <input type="number" id="amount" class="form-control" placeholder="0.00" step="0.00000001">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Blockchain Network</label>
+                    <div class="blockchain-selector">
+                        <div class="blockchain-toggle" id="blockchainToggle">
+                            <span id="selectedBlockchain">Select a blockchain</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L12 15L17 10H7Z" fill="#FFD700"/>
+                            </svg>
+                        </div>
+                        <div class="blockchain-options" id="blockchainOptions">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="walletAddressGroup" style="display: none;">
+                    <label for="walletAddress" class="form-label">Wallet Address</label>
+                    <input type="text" id="walletAddress" class="form-control" placeholder="Enter your wallet address">
+                </div>
+                
+                <button class="btn btn-primary" id="submitBtn" disabled>Continue</button>
+                
+                <!-- Minimum withdrawal notice -->
+                <div class="min-withdrawal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM11 7H13V13H11V7ZM11 15H13V17H11V15Z" fill="#FFD700"/>
+                    </svg>
+                    <span>Minimum withdrawal amount: <span class="min-amount" id="minAmount">100 USDT</span></span>
+                </div>
+            </div>
+            
+            <div class="processing" id="processing">
+                <div class="processing-spinner"></div>
+                <h3>Processing Withdrawal</h3>
+                <p>Your request is being processed. Please wait for confirmation.</p>
+            </div>
+        </div>
+        
+        <!-- Withdrawal History Card -->
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 7H13V9H11V7ZM11 11H13V17H11V11ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#FFD700"/>
+                </svg>
+                Withdrawal History (USDT Only)
+            </h2>
+            
+            <div id="withdrawalHistory">
+                <!-- History items will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Recent Withdrawals Card -->
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V4L8 8L12 12V8ZM12 8C15.31 8 18 10.69 18 14C18 17.31 15.31 20 12 20C8.69 20 6 17.31 6 14H4C4 18.42 7.58 22 12 22C16.42 22 20 18.42 20 14C20 9.58 16.42 6 12 6V8Z" fill="#FFD700"/>
+                </svg>
+                Recent Withdrawals (Live)
+            </h2>
+            
+            <div class="recent-withdrawals" id="recentWithdrawals">
+                <!-- Recent withdrawals will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
